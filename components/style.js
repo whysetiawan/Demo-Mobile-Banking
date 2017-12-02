@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  indexContainer: {
     flex: 1,
     backgroundColor: '#446CB3',
   },
@@ -39,16 +39,22 @@ const styles = StyleSheet.create({
     color: 'red',
     textAlign: 'center'
   },
-  bigTextSize: {
-    fontSize: 24,
-    color: '#FFFFF5'
-  },
   registerHeader: {
     borderBottomWidth: 0.7,
+    width: '90%',
     borderColor: '#FFFFF5',
     paddingBottom: '10%',
     marginBottom: '5%',
     marginTop: '5%'
+  },
+  centerContainer: {
+    flex: 1,
+    alignItems:'center',
+    justifyContent: 'center',
+    backgroundColor: '#446CB3',
+  },
+  normalText: {
+    color: '#FFFFFF',
   }
 })
 

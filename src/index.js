@@ -30,7 +30,7 @@ export default class App extends Component<{}> {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
+      <View style={styles.indexContainer}>
         <IndicatorViewPager
           style={{height: '80%'}}
           indicator={this._renderDotIndicator()}
@@ -78,7 +78,7 @@ export default class App extends Component<{}> {
           >
             <Text style={styles.indexTextButton}> Daftar Sebagai Agen </Text>
           </TouchableOpacity>
-          <Text style={styles.indexText}> Sudah Punya Akun? Masuk Disini </Text>
+          <Text style={styles.indexText} onPress={() => navigate('Login')}> Sudah Punya Akun? Masuk Disini </Text>
       </View>
     );
   }

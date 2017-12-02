@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import styles from '../components/style';
 
-export default class Register extends Component<{}> {
+export default class Register2 extends Component<{}> {
   static navigationOptions = ({ navigation }) => ({
     title: 'Daftar',
     headerTintColor: '#FFFFFF',
