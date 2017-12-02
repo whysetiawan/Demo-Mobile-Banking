@@ -6,11 +6,14 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  TouchableHighlight
 } from 'react-native';
 import styles from '../components/style';
+import { Bar } from 'react-native-progress';
+import { CameraKitCamera } from 'react-native-camera-kit';
 
-export default class Register2 extends Component<{}> {
+export default class Register extends Component<{}> {
   static navigationOptions = ({ navigation }) => ({
     title: 'Daftar',
     headerTintColor: '#FFFFFF',
@@ -36,35 +39,35 @@ export default class Register2 extends Component<{}> {
     // else{
       const data = { email, phoneNumber }
       console.log(data)
-      this.props.navigation.navigate('Index', {data})
+      this.props.navigation.navigate('Register2', {data})
     // }
   }
 
   render() {
     return (
-      <KeyboardAvoidingView style={styles.centerContainer} >
+      <KeyboardAvoidingView style={styles.indexContainer} >
+        <Bar progress={0.6} width={340} color='#EEEEEE' style={{margin: 10}} borderWidth={0.7} />
           <View style={styles.registerHeader}>
-            <Text style={styles.indexText}> Ikuti 3 Langkah Berikut! </Text>
+            <Text style={styles.indexText}> 2. Identitas Anda </Text>
           </View>
-          <TextInput
-            placeholder='Email'
-            style={styles.registrationTextInput}
-            value={this.state.email}
-            onChangeText={(email) => this.setState({email})}
-            underlineColorAndroid='#FFFFF5'
-            placeholderTextColor='#FFFFF5'
+            <View style={styles.rowContainer}>
+            <CameraKitCamera
+            ref={cam => this.camera = cam}
+            style={{
+              flex: 1,
+              backgroundColor: 'white'
+            }}
+            cameraOptions={{
+              flashMode: 'auto',             // on/off/auto(default)
+              focusMode: 'on',               // off/on(default)
+              zoomMode: 'on',                // off/on(default)
+              ratioOverlay:'1:1',            // optional, ratio overlay on the camera and crop the image seamlessly
+              ratioOverlayColor: '#00000077' // optional
+            }}
+            onReadQRCode={(event) => console.log(event.nativeEvent.qrcodeStringValue)} // optional
+            
           />
-          { this.state.errorEmail ? <Text style={styles.errorMsg}> Email anda tidak valid </Text> : false }
-          <TextInput
-            placeholder='Nomor HP'
-            style={styles.registrationTextInput}
-            value={this.state.phoneNumber}
-            onChangeText={(phoneNumber) => this.setState({phoneNumber})}
-            keyboardType='phone-pad'
-            underlineColorAndroid='#FFFFF5'
-            placeholderTextColor='#FFFFF5'
-          />
-          { this.state.errorNumber ? <Text style={styles.errorMsg}> Nomor HP anda tidak valid </Text> : false }
+            </View>
           <TouchableOpacity
             style={[styles.indexButton, {marginTop: 10}]}
             onPress={this.nextStep.bind(this)}

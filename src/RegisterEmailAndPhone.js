@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView
 } from 'react-native';
 import styles from '../components/style';
+import { Bar } from 'react-native-progress';
 
 export default class Register extends Component<{}> {
   static navigationOptions = ({ navigation }) => ({
@@ -36,15 +37,16 @@ export default class Register extends Component<{}> {
     // else{
       const data = { email, phoneNumber }
       console.log(data)
-      this.props.navigation.navigate('Index', {data})
+      this.props.navigation.navigate('Register2', {data})
     // }
   }
 
   render() {
     return (
-      <KeyboardAvoidingView style={styles.centerContainer} >
+      <KeyboardAvoidingView style={styles.indexContainer} >
+        <Bar progress={0.3} width={340} color='#ffffff' style={{margin: 10}} borderWidth={0.7} borderColor='#EEEEEE' />
           <View style={styles.registerHeader}>
-            <Text style={styles.indexText}> Ikuti 3 Langkah Berikut! </Text>
+          <Text style={styles.indexText}> 1. Tentang Anda </Text>
           </View>
           <TextInput
             placeholder='Email'

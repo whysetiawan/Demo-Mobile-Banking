@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   indexContainer: {
     flex: 1,
     backgroundColor: '#446CB3',
+    width:'100%'
   },
   sliderContainer: {
     justifyContent:'flex-end',
@@ -45,7 +46,8 @@ const styles = StyleSheet.create({
     borderColor: '#FFFFF5',
     paddingBottom: '10%',
     marginBottom: '5%',
-    marginTop: '5%'
+    marginTop: '5%',
+    alignSelf: 'center'
   },
   centerContainer: {
     flex: 1,
@@ -55,6 +57,10 @@ const styles = StyleSheet.create({
   },
   normalText: {
     color: '#FFFFFF',
+  },
+  rowContainer: {
+    flex: 1,
+    flexDirection: 'row',
   }
 })
 
