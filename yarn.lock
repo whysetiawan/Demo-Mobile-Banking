@@ -46,8 +46,8 @@ ajv@^4.9.1:
     json-stable-stringify "^1.0.1"
 
 ajv@^5.1.0:
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.1.tgz#b38bb8876d9e86bee994956a04e721e88b248eb2"
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.0.tgz#eb2840746e9dc48bd5e063a36e3fd400c5eab5a9"
   dependencies:
     co "^4.6.0"
     fast-deep-equal "^1.0.0"
@@ -3768,9 +3768,9 @@ rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
 
-rn-viewpager@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/rn-viewpager/-/rn-viewpager-1.2.0.tgz#d0785a488f0ef65321d354348cd9379f743b1584"
+rn-viewpager@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/rn-viewpager/-/rn-viewpager-1.2.8.tgz#f3a735d1957c3c3b36309f6a99fc47976a1ed117"
 
 rndm@1.2.0:
   version "1.2.0"
@@ -4232,8 +4232,8 @@ ua-parser-js@^0.7.9:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
 
 uglify-es@^3.1.8:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.2.1.tgz#93de0aad8a1bb629c8a316f686351bc4d6ece687"
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.2.0.tgz#fbbfb9dc465ec7e5065701b9720d0de977d0bc24"
   dependencies:
     commander "~2.12.1"
     source-map "~0.6.1"

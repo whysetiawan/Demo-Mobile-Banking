@@ -71,7 +71,7 @@ export default class Register extends Component<{}> {
             placeholderTextColor='#FFFFF5'
             {...this.props}
           />
-          { this.state.errorNumber ? <Text style={styles.errorMsg}> Format nomor HP salah </Text> : false }
+          {/* { this.state.errorNumber ? <Text style={styles.errorMsg}> Format nomor HP salah </Text> : false } */}
           <Text style={[styles.normalText, { margin:'4%' }]} onPress={() => navigate('Login')}> Lupa Password? </Text>
           <TouchableOpacity
             style={[styles.indexButton, {marginTop: 10}]}
@@ -79,7 +79,7 @@ export default class Register extends Component<{}> {
           >
             <Text style={styles.indexTextButton}> Login </Text>
           </TouchableOpacity>
-          { this.state.error ? <Text style={styles.errorMsg} >  Email atau Password anda salah </Text> : null}
+          {/* { this.state.error ? <Text style={styles.errorMsg} >  Email atau Password anda salah </Text> : null} */}
       </KeyboardAvoidingView>
     );
   }

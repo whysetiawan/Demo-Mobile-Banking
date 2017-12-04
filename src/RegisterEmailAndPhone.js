@@ -6,8 +6,7 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView,
-  TouchableHighlight
+  KeyboardAvoidingView
 } from 'react-native';
 import styles from '../components/style';
 import { Bar } from 'react-native-progress';
@@ -23,48 +22,51 @@ export default class Register extends Component<{}> {
   constructor(){
     super();
     this.state = {
-      norek: '',
-      pin: '',
-      errorMsg: ''
+      email: '',
+      phoneNumber: '',
+      errorEmail: false,
+      errorNumber: false,
     }
   }
 
-  componentDidMount(){
-    const {data} = this.props.navigation.state.params;
-    console.log(data)    
-  }
-
   nextStep(){
-    const {data} = this.props.navigation.state.params;
-    console.log(data)
-    this.props.navigation.setParams({ data: {...data,...this.state}})
+    const { email, phoneNumber } = this.state;
+    if(email == '' || phoneNumber.length < 10 || phoneNumber == ''){
+      this.setState({ errorEmail: true, errorNumber: true })
+    }
+    // else{
+      const data = { email, phoneNumber }
+      console.log(data)
+      this.props.navigation.navigate('Register2', {data})
+    // }
   }
 
   render() {
     return (
       <KeyboardAvoidingView style={styles.indexContainer} >
-        <Bar progress={1.0} width={340} color='#EEEEEE' style={{margin: 10}} borderWidth={0.7} />
+        <Bar progress={0.3} width={340} color='#ffffff' style={{margin: 10}} borderWidth={0.7} borderColor='#EEEEEE' />
           <View style={styles.registerHeader}>
-            <Text style={styles.indexText}> 2. Sedikit Lagi Tentang Anda </Text>
+          <Text style={styles.indexText}> 1. Tentang Anda </Text>
           </View>
           <TextInput
-            placeholder='No. Rekening'
+            placeholder='Email'
             style={styles.registrationTextInput}
-            value={this.state.norek}
-            onChangeText={(norek) => this.setState({norek})}
+            value={this.state.email}
+            onChangeText={(email) => this.setState({email})}
             underlineColorAndroid='#FFFFF5'
             placeholderTextColor='#FFFFF5'
-            keyboardType='numeric'
           />
+          { this.state.errorEmail ? <Text style={styles.errorMsg}> Email anda tidak valid </Text> : false }
           <TextInput
-            placeholder='Pin Untuk Transaksi'
+            placeholder='Nomor HP'
             style={styles.registrationTextInput}
-            value={this.state.pin}
-            onChangeText={(pin) => this.setState({pin})}
+            value={this.state.phoneNumber}
+            onChangeText={(phoneNumber) => this.setState({phoneNumber})}
+            keyboardType='phone-pad'
             underlineColorAndroid='#FFFFF5'
             placeholderTextColor='#FFFFF5'
-            keyboardType='numeric'
           />
+          { this.state.errorNumber ? <Text style={styles.errorMsg}> Nomor HP anda tidak valid </Text> : false }
           <TouchableOpacity
             style={[styles.indexButton, {marginTop: 10}]}
             onPress={this.nextStep.bind(this)}
@@ -74,4 +76,4 @@ export default class Register extends Component<{}> {
         </KeyboardAvoidingView>
     );
   }
-} 
+}

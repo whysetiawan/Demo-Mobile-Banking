@@ -14,6 +14,7 @@ import styles from '../components/style';
 import { Bar } from 'react-native-progress';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Modal from 'react-native-modalbox';
+import ImagePicker, { openPicker, openCamera } from 'react-native-image-crop-picker';
 
 export default class Register extends Component<{}> {
   static navigationOptions = ({ navigation }) => ({
@@ -31,6 +32,15 @@ export default class Register extends Component<{}> {
     }
   }
 
+  openCamera(){
+    ImagePicker.openCamera({
+      // width: 300,
+      // height: 300
+    }).then((image) => {
+      
+    })
+  }
+
   render() {
     return (
       <KeyboardAvoidingView style={styles.indexContainer} >
@@ -39,13 +49,17 @@ export default class Register extends Component<{}> {
             <Text style={styles.indexText}> Langkah Kedua </Text>
           </View>
           <View style={styles.rowContainer}>
-            <TouchableNativeFeedback>
+            <TouchableNativeFeedback
+              onPress={this.openCamera.bind(this)}
+            >
               <View style={styles.roundedView} >
                 <Icon name="md-camera" color='#FFFFFF' size={35} />
                 <Text style={styles.smallText}> Foto KTP </Text>
               </View>
             </TouchableNativeFeedback>
-            <TouchableNativeFeedback>
+            <TouchableNativeFeedback
+              // onPress={this.openCamera.bind(this)}
+            >
               <View style={styles.roundedView} >
                 <Icon name="md-camera" color='#FFFFFF' size={35} />
                 <Text style={styles.smallText}> Foto Diri </Text>
@@ -54,13 +68,17 @@ export default class Register extends Component<{}> {
           </View>
 
           <View style={styles.rowContainer}>
-            <TouchableNativeFeedback>
+            <TouchableNativeFeedback
+              // onPress={this.openCamera.bind(this)}
+            >
               <View style={styles.roundedView} >
                 <Icon name="md-camera" color='#FFFFFF' size={35} />
                 <Text style={styles.smallText}> Tanda Tangan </Text>
               </View>
             </TouchableNativeFeedback>
-            <TouchableNativeFeedback>
+            <TouchableNativeFeedback
+              // onPress={this.openCamera.bind(this)}
+            >
               <View style={styles.roundedView} >
                 <Icon name="md-camera" color='#FFFFFF' size={35} />
                 <Text style={styles.smallText}> NPWP </Text>

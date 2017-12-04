@@ -16,7 +16,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import styles from '../components/style';
-// import { IndicatorViewPager, PagerDotIndicator } from 'rn-viewpager';
+import { IndicatorViewPager, PagerDotIndicator } from 'rn-viewpager';
 
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
 
@@ -24,14 +24,14 @@ export default class App extends Component<{}> {
   static navigationOptions = ({ navigations }) => {
     header: null
   }
-//   _renderDotIndicator() {
-//     return <PagerDotIndicator pageCount={5} />
-// }
+  _renderDotIndicator() {
+    return <PagerDotIndicator pageCount={5} />
+}
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.indexContainer}>
-        {/* <IndicatorViewPager
+        <IndicatorViewPager
           style={{height: '80%'}}
           indicator={this._renderDotIndicator()}
           autoPlayEnable
@@ -71,14 +71,14 @@ export default class App extends Component<{}> {
             />
             <Text style={styles.indexText} > {lorem} </Text>
           </View>
-        </IndicatorViewPager> */}
+        </IndicatorViewPager>
           <TouchableOpacity
             style={styles.indexButton}
             onPress={() => navigate('Register')}
           >
             <Text style={styles.indexTextButton}> Daftar Sebagai Agen </Text>
           </TouchableOpacity>
-          <Text style={styles.indexText} onPress={() => navigate('Login')}> Sudah Punya Akun? Masuk Disini </Text>
+          <Text style={[styles.indexText, { marginTop: 10 }]} onPress={() => navigate('Login')}> Sudah Punya Akun? Masuk Disini </Text>
       </View>
     );
   }
